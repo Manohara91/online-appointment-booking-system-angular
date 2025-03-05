@@ -1,0 +1,157 @@
+<mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="goBack()" aria-label="Back">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span class="title" style="flex-grow: 1;color: white;">{{ doctor.name }}</span>
+    
+    <!-- Buttons Container -->
+    <div style="display: flex; gap: 10px;">
+      <!-- <button >Booking Details</button> -->
+      <button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar>
+  
+  <div class="doctor-details">
+    <h2>Doctor Details</h2>
+  
+    <!-- Doctor Info Section -->
+    <div class="doctor-info">
+      <mat-form-field appearance="fill" class="info-item">
+        <mat-label>Name</mat-label>
+        <input matInput [value]="doctor.name" disabled />
+      </mat-form-field>
+  
+      <!-- <mat-form-field appearance="fill" class="info-item">
+        <mat-label>Phone No</mat-label>
+        <input matInput [value]="doctor.phoneNo" disabled />
+      </mat-form-field> -->
+
+      <mat-form-field appearance="fill" class="info-item">
+        <mat-label>Specialization</mat-label>
+        <input matInput [value]="doctor.specialization" disabled />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="info-item">
+        <mat-label>Experience</mat-label>
+        <input matInput [value]="doctor.experience + ' years'" disabled />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="info-item">
+        <mat-label>Hospital</mat-label>
+        <input matInput [value]="doctor.hospital" disabled />
+      </mat-form-field>
+    </div>
+  
+    <!-- Availability Section -->
+    <!-- <div class="availability">
+      <strong>Availability:</strong>
+      <mat-form-field appearance="fill" class="availability-dropdown">
+        <mat-label>Select Available Time</mat-label>
+        <mat-select [(ngModel)]="selectedAvailability" [disabled]="isDisabled">
+          <mat-option *ngFor="let time of doctor.availability" [value]="time">{{ time }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> -->
+  
+    <div class="availability">
+      <strong>Availability:</strong>
+      <mat-form-field appearance="fill" class="availability-dropdown">
+        <mat-label>Select Available Time</mat-label>
+        <mat-select [(ngModel)]="selectedAvailability" (ngModelChange)="onAvailabilityChange($event)">
+          <mat-option *ngFor="let time of doctor.availability" [value]="time">{{ time }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- [disabled]="isDisabled" -->
+    
+    <!-- <div class="availability">
+        <strong>Availability:</strong>
+        <mat-form-field appearance="fill" class="availability-dropdown">
+          <mat-label>Select Available Time</mat-label>
+          <mat-select [(ngModel)]="selectedAvailability" (ngModelChange)="onAvailabilityChange($event)" [disabled]="isDisabled">
+            <mat-option *ngFor="let time of doctor.availability" [value]="time">{{ time }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> -->
+
+      <!-- Comment Section -->
+      <div class="comment-box">
+        <h3>Write a comment for the doctor:</h3>
+        <mat-form-field appearance="fill" class="comment-box">
+          <textarea 
+            matInput 
+            [(ngModel)]="patientComment" 
+            rows="4" 
+            [disabled]="isDisabled" 
+            placeholder="Enter your comment here...">
+          </textarea>
+        </mat-form-field>
+      </div>
+      <!-- <div class="comment-box">
+        <h3>Write a comment for the doctor:</h3>
+        <mat-form-field appearance="fill" class="comment-box">
+          <textarea 
+            matInput 
+            [(ngModel)]="patientComment" 
+            rows="4" 
+            [disabled]="isDisabled" 
+            placeholder="Enter your comment here..." 
+            (ngModelChange)="onCommentChange($event)">
+          </textarea>
+        </mat-form-field>
+      </div> -->
+      <!-- <div class="comment-box">
+        <h3>Write a comment for the doctor:</h3>
+        <mat-form-field appearance="fill" class="comment-box">
+          <textarea 
+            matInput 
+            [(ngModel)]="patientComment" 
+            rows="4" 
+            [disabled]="isDisabled" 
+            placeholder="Enter your comment here..." 
+            (ngModelChange)="onCommentChange($event)">
+          </textarea>
+        </mat-form-field>
+      </div> -->
+      
+    <!-- <div class="comment-box">
+        <h3>Write a comment for the doctor:</h3>
+        <mat-form-field appearance="fill" class="comment-box">
+        <textarea matInput [(ngModel)]="patientComment" rows="6" [disabled]="isDisabled" placeholder="Enter your comment here..."></textarea>
+        </mat-form-field>
+    </div> -->
+  
+  
+    <!-- Actions -->
+    <div class="actions-container">
+       <!-- Show Message -->
+    <div *ngIf="message" class="error-message">
+      {{ message }}
+    </div>
+      <div class="actions">
+        <button mat-raised-button
+        [disabled]="isFormValid || isDisabled"
+        [ngClass]="{'custom-enabled': !isFormValid && !isDisabled}"
+        (click)="bookAppointment()">
+          Book Appointment
+        </button>
+      </div>
+      <!-- [disabled]="isFormValid || isDisabled"  -->
+    <!-- <div class="actions">
+      <button mat-raised-button color="primary" [disabled]="isFormValid || isDisabled" (click)="bookAppointment()">
+        Book Appointment
+      </button>
+    </div> -->
+   
+     <!-- Book Button -->
+      <!-- <div class="actions">
+        <button mat-raised-button color="primary" [disabled]="isFormValid || isDisabled" (click)="bookAppointment()">
+          Book Appointment
+        </button> -->
+    <!-- <div class="actions">
+      <button mat-raised-button color="primary" [disabled]="isFormValid" (click)="bookAppointment()">Book Appointment</button>
+    </div>
+    <div *ngIf="message" class="error-message">
+      {{ message }}
+    </div> -->
+  </div>

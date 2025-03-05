@@ -1,0 +1,64 @@
+<mat-toolbar
+  class="toolbar"
+  color="primary"
+  style="display: flex; justify-content: space-between; align-items: center;"
+>
+<span class="title">Cancel Appointment</span>
+  <!-- Close Button (Cross Icon) -->
+  <button
+    mat-icon-button
+    (click)="onNoClick()"
+    aria-label="Close"
+    style="margin-left: auto;"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div mat-dialog-content>
+  <p style="font-size: 16px; font-weight: 500; margin-bottom: 16px;">
+    Are you sure you want to cancel the appointment?
+  </p>
+
+  <div class="comment-section" style="margin-top: 16px;">
+    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">
+      Cancel Reason
+    </h3>
+    <mat-form-field
+      appearance="outline"
+      style="width: 100%;"
+    >
+      <textarea
+        matInput
+        [(ngModel)]="cancelReason"
+        rows="4"
+        placeholder="Enter your cancel reason here..."
+        (ngModelChange)="onCommentChange($event)"
+        style="resize: none;"
+      >
+      </textarea>
+    </mat-form-field>
+  </div>
+</div>
+
+<div
+  mat-dialog-actions
+  style="display: flex; justify-content: flex-end; margin-top: 16px;"
+>
+  <button
+    mat-button
+    (click)="onNoClick()"
+    style="color: #666;"
+  >
+    No
+  </button>
+  <button
+    mat-raised-button
+    color="warn"
+    [disabled]="!cancelReason"
+    (click)="onYesClick()"
+    style="margin-left: 8px;"
+  >
+    Yes
+  </button>
+</div>

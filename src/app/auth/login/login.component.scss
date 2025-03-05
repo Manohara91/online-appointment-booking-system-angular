@@ -1,0 +1,163 @@
+.container {
+    display: flex;
+    height: 88vh;
+  }
+  
+  // Left Side (Background Image)
+  .left-side {
+    width: 50%;
+    // background: url('../../../assets/images/login-img.jpg') no-repeat center center/cover;
+    // background: url('https://source.unsplash.com/1600x900/?healthcare,hospital') no-repeat center center/cover;
+  }
+  
+  // Right Side (Login Form)
+  .right-side {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    // background: url('../../../assets/images/login-img.jpg') no-repeat center center/cover;
+  }
+  
+  // Login Form Container
+  .login-container {
+    width: 400px;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  // Form Fields
+  .form-field {
+    width: 100%;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  /* Links Section */
+  .links-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #00796b; /* Same color as the login button */
+    font-size: 14px;
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+    color: #004d40; /* Darker shade on hover */
+  }
+  
+  
+  // Links Section
+  // .links-container {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   margin-top: 10px;
+  // }
+  
+  // .link {
+  //   text-decoration: none;
+  //   color: #3f51b5;
+  // }
+  
+  // .link:hover {
+  //   text-decoration: underline;
+  // }
+  // .toolbar {
+  //   background-color: #3f51b5; /* Primary color */
+  //   // background-color: #00796b;
+  //   color: white;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   padding: 0 20px;
+  //   // height: 50px;
+  // }
+  // .title {
+  //   font-size: 22px; /* Slightly larger for better readability */
+  //   font-weight: 600; /* Slightly bolder */
+  //   font-family: 'Arial', sans-serif; /* Standard font family */
+  //   letter-spacing: 1px; /* Adds spacing between letters for clarity */
+  //   text-transform: uppercase; /* Makes the title text all uppercase for a cleaner look */
+  // }
+  
+  .toolbar {
+    // background-color: #3f51b5; /* Deep teal */
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 10px 20px;
+    height: 70px; /* Set height */
+  }
+  
+  .title {
+    font-size: 22px; /* Slightly larger for better readability */
+    font-weight: 600; /* Slightly bolder */
+    font-family: 'Arial', sans-serif; /* Standard font family */
+    letter-spacing: 1px; /* Adds spacing between letters for clarity */
+    text-transform: uppercase; /* Makes the title text all uppercase for a cleaner look */
+  }
+  
+  
+  // .login-btn{
+  //   background-color: #00796b;
+  // }
+  h2 {
+    font-size: 32px; /* Larger font size for emphasis */
+    font-weight: 600; /* Bold for prominence */
+    font-family: 'Roboto', sans-serif; /* Clean and modern font */
+    letter-spacing: 2px; /* Slight spacing between letters for clarity */
+    color: #00796b; /* Matching the toolbar color */
+    text-align: center; /* Center the text */
+    text-transform: uppercase; /* Uppercase for a standardized look */
+    margin-bottom: 20px; /* Space below the title */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+  }
+  
+  /* Placeholder Text Color */
+  .mat-form-field input::placeholder {
+    color: #00796b; /* Same color as the login button */
+  }
+  
+  /* Login Button */
+  button.login-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #00796b; /* Login button color */
+    color: white; /* White text on the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow */
+    transition: all 0.3s ease;
+  }
+  
+  button.login-btn:hover {
+    background-color: #004d40; /* Darker shade of teal on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  
+  button.login-btn:disabled {
+    background-color: #ccc; /* Grey color when disabled */
+    box-shadow: none;
+  }
+  

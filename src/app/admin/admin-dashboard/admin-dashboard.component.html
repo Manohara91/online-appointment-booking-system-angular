@@ -1,0 +1,66 @@
+<mat-sidenav-container class="dashboard-container">
+    <!-- Sidenav -->
+    <mat-sidenav mode="side" opened>
+      <!-- <mat-toolbar color="primary">Admin Dashboard</mat-toolbar> -->
+      <mat-toolbar color="primary" class="toolbar">
+        <span class="title">Admin Dashboard</span>
+      </mat-toolbar>
+      <hr/>
+      <mat-nav-list>
+        <!-- <a mat-list-item 
+           routerLink="/admin-dashboard/dashboard" 
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }">
+         <p style="color: white;">Dashboard</p>
+        </a> -->
+        <a mat-list-item 
+           routerLink="/admin-dashboard" 
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }">
+           <!-- [routerLinkActiveOptions]="{ exact: true }" -->
+         <p style="color: white;">Doctors</p>
+        </a>
+        <a mat-list-item 
+           routerLink="/admin-dashboard/all-patients" 
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }">
+           <p style="color: white;">Patients</p>
+          
+        </a>
+        <a mat-list-item 
+           routerLink="/admin-dashboard/all-appointments" 
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }">
+           <p style="color: white;">Appointments</p>
+          
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    
+    <!-- <mat-sidenav mode="side" opened>
+      <mat-toolbar color="primary">Admin Dashboard</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a mat-list-item routerLink="/admin-dashboard/doctor-details" routerLinkActive="active">Doctors</a>
+        <a mat-list-item routerLink="/admin-dashboard/all-patients" routerLinkActive="active">Patients</a>
+        <a mat-list-item routerLink="/admin-dashboard/all-appointments" routerLinkActive="active">Appointments</a>
+      </mat-nav-list>
+    </mat-sidenav> -->
+  
+    <!-- Main Content -->
+    <mat-sidenav-content>
+      <!-- <mat-toolbar color="primary">
+        <span>Welcome to the Admin Dashboard</span>
+      </mat-toolbar> -->
+      <mat-toolbar color="primary" class="toolbar">
+        <span style="text-align: center;">Online Appointment Booking System</span>
+        <span style="flex-grow: 1;"></span>
+        <div style="display: flex; gap: 10px;">
+          <button class="logoutbtn" (click)="logout()">Logout</button>
+        </div>
+      </mat-toolbar>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

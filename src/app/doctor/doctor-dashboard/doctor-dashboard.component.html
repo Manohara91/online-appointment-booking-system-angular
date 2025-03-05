@@ -1,0 +1,126 @@
+<mat-toolbar class="toolbar"  color="primary">
+    <span class="title" style="flex-grow: 1;">{{doctor.name}}</span>
+    
+    <!-- Buttons Container -->
+    <div style="display: flex; gap: 10px;">
+      <!-- <button (click)="bookingDetail()">Booking Details</button> -->
+      <button class="lbtn" (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar>
+
+<div class="dashboard-container">
+    <!-- Doctor Information Section -->
+    <div class="doctor-details-card">
+      <h3>Doctor Information</h3>
+      <div class="doctor-info">
+        <!-- {{doctor | json}} -->
+        <p><strong>Name: &nbsp;</strong> {{ doctor.name }}</p>
+        <p><strong>Email: &nbsp;</strong> {{ doctor.email }}</p>
+        <p><strong>Phone: &nbsp;</strong> {{ doctor.phone }}</p>
+        <p><strong>Experience: &nbsp;</strong> {{ doctor.experience }} Years</p>
+        <p><strong>Specialization: &nbsp;</strong> {{ doctor.specialization }}</p>
+        <p><strong>Hospital: &nbsp;</strong> {{ doctor.hospital }}</p>
+        <p><strong>availability: &nbsp;</strong> {{ doctor.availability }}</p>
+        <button class="btn confirm-btn"  (click)="editDoctorDetails(doctor)">Edit Details</button>
+      </div>
+    </div>
+  
+    <!-- Appointments Section -->
+    <div class="appointments-section">
+      <h3>Appointments</h3>
+      <table class="appointments-table">
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Appointment Time</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appointment of appointments">
+            <td>{{ appointment.patientName }}</td>
+            <td>{{ appointment.appointmentTime }}</td>
+            <td 
+            [ngClass]="{
+              'status-pending': appointment.status === 'pending',
+              'status-confirmed': appointment.status === 'confirmed',
+              'status-canceled': appointment.status === 'canceled'
+            }"
+            >{{ appointment.status }}</td>
+            <td>
+              <!-- <button style="margin-right: 10px;" *ngIf="appointment.status === 'pending'" (click)="confirmAppointment(appointment)">Confirm</button> -->
+              <!-- <button mat-button color="warn"
+              *ngIf="appointment.status !== 'canceled'"
+              (click)="cancelAppointment(appointment)">Cancel</button>
+              <button mat-raised-button color="primary" 
+              *ngIf="appointment.status !== 'confirmed'" 
+              (click)="confirmAppointment(appointment)">
+                Confirm
+              </button> -->
+             <!-- Show Cancel button when status is Pending -->
+              <!-- Show Cancel button when status is "Pending" or "Confirmed" -->
+              <button mat-button color="warn" 
+              *ngIf="appointment.status === 'pending' || appointment.status === 'confirmed'" 
+              (click)="cancelAppointment(appointment)">
+              Cancel
+              </button>
+
+              <!-- Show Confirm button only if status is "Pending" -->
+              <button class="confirm-btn" mat-raised-button color="primary" 
+              *ngIf="appointment.status === 'pending'" 
+              (click)="confirmAppointment(appointment)">
+              Confirm
+              </button>
+
+
+              <!-- <button *ngIf="appointment.status === 'pending'" (click)="cancelAppointment(appointment)">Cancel</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Availability Section -->
+    <div class="availability-section">
+      <!-- <h3>Add Availability</h3> -->
+      <button class="btn confirm-btn" (click)="addAvailability(doctor)">Add Availability</button>
+    </div>
+  </div>
+  
+  <!-- Edit Doctor Modal -->
+  <ng-template #editDoctorModal>
+    <div class="modal">
+      <h4>Edit Doctor Details</h4>
+      <form (ngSubmit)="updateDoctorDetails()">
+        <label>Name</label>
+        <input [(ngModel)]="doctor.name" name="name" required />
+  
+        <label>Email</label>
+        <input [(ngModel)]="doctor.email" name="email" required />
+  
+        <label>Specialization</label>
+        <input [(ngModel)]="doctor.specialization" name="specialization" required />
+  
+        <label>Hospital</label>
+        <input [(ngModel)]="doctor.hospital" name="hospital" required />
+  
+        <button class="btn" type="submit">Update Details</button>
+        <button class="btn" type="button" (click)="closeEditDoctorModal()">Close</button>
+      </form>
+    </div>
+  </ng-template>
+  
+  <!-- Availability Modal -->
+  <!-- <ng-template #availabilityModal>
+    <div class="modal">
+      <h4>Set Appointment Availability</h4>
+      <form (ngSubmit)="updateAvailability()">
+        <label>Availability (Days/Times)</label>
+        <input [(ngModel)]="doctor.availability" name="availability" required />
+  
+        <button class="btn" type="submit">Update Availability</button>
+        <button class="btn" type="button" (click)="closeAvailabilityModal()">Close</button>
+      </form>
+    </div>
+  </ng-template> -->

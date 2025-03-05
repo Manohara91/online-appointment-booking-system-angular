@@ -1,0 +1,81 @@
+<mat-toolbar color="primary" class="toolbar">
+    <span class="title">Edit Details</span>
+    <button mat-icon-button (click)="close()" aria-label="Close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <form [formGroup]="editForm" class="edit-form">
+    <div class="form-container">
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error *ngIf="editForm.controls['name'].hasError('required')">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+          <mat-error *ngIf="editForm.controls['email'].hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="editForm.controls['email'].hasError('email')">
+            Enter a valid email
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" />
+          <mat-error *ngIf="editForm.controls['phone'].hasError('required')">
+            Phone number is required
+          </mat-error>
+          <mat-error *ngIf="editForm.controls['phone'].hasError('pattern')">
+            Enter a valid 10-digit phone number
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Experience</mat-label>
+          <input matInput type="number" formControlName="experience" />
+          <mat-error *ngIf="editForm.controls['experience'].hasError('required')">
+            Experience is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Specialization</mat-label>
+          <input matInput formControlName="specialization" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Hospital</mat-label>
+          <input matInput formControlName="hospital" />
+        </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Availability</mat-label>
+          <mat-select formControlName="availability" multiple>
+            <mat-option *ngFor="let slot of availabilityOptions" [value]="slot">
+              {{ slot }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <div class="button-container">
+        <button mat-button color="warn" (click)="close()">Cancel</button>
+        <button mat-raised-button class="save-btn" color="primary" (click)="saveChanges()">Save</button>
+      </div>
+    </div>
+  </form>
+  

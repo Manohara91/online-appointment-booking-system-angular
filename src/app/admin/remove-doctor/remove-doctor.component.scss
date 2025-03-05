@@ -1,0 +1,32 @@
+mat-dialog-title {
+    font-size: 1.5rem;
+    color: #f44336;
+  }
+  
+  mat-dialog-content {
+    font-size: 1.1rem;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .toolbar {
+    // background-color: #3f51b5; /* Deep teal */
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 10px 20px;
+    // height: 70px; /* Set height */
+  }
+  
+  .title {
+    font-size: 16px; /* Slightly larger for better readability */
+    font-weight: 600; /* Slightly bolder */
+    font-family: 'Arial', sans-serif; /* Standard font family */
+    letter-spacing: 1px; /* Adds spacing between letters for clarity */
+    text-transform: capitalize; /* Makes the title text all uppercase for a cleaner look */
+  }

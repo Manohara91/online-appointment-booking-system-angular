@@ -1,0 +1,61 @@
+<mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="goBack()" aria-label="Back">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span class="title" style="flex-grow: 1;color: white;">Appointment Details</span>
+    
+    <!-- Buttons Container -->
+    <div style="display: flex; gap: 10px;">
+      <!-- <button >Booking Details</button> -->
+      <button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar>
+  
+  <div class="appointments-container">
+    <!-- Loop through each appointment data -->
+    <mat-card class="order-details-card" *ngFor="let appointment of appointmentData">
+      <!-- <mat-card-header>
+        <mat-card-title>Appointment Details</mat-card-title>
+      </mat-card-header> -->
+  
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <strong>Doctor Name: &nbsp;</strong>
+            <span>{{ appointment.doctorDetails.name }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>Hospital Name: &nbsp;</strong>
+            <span>{{ appointment.doctorDetails.hospital }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>Appointment Time: &nbsp;</strong>
+            <span>{{ appointment.appointmentTime }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>Status:&nbsp;</strong>
+            <span [ngClass]="{ 'canceled': appointment.status === 'canceled', 'pending': appointment.status === 'pending' }">
+              {{ appointment.status | titlecase }}
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>Booked Date: &nbsp;</strong>
+            <!-- <span>{{ appointment.createdAt | date: 'medium' }}</span> -->
+            <!-- <span>{{ appointment.createdAt | date: 'dd/MM/yyyy, HH:mm' }}</span> -->
+            <span>{{ appointment.createdAt | date: 'dd/MM/yyyy, hh:mm a' }}</span>
+          </mat-list-item>
+          <!-- <mat-list-item>
+            <strong>Updated At:</strong>
+            <span>{{ appointment.updatedAt | date: 'short' }}</span>
+          </mat-list-item> -->
+        </mat-list>
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <button mat-button color="warn" *ngIf="appointment.status !== 'canceled'" (click)="cancelAppointment(appointment._id)">
+          Cancel Appointment
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

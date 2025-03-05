@@ -1,0 +1,128 @@
+<div class="appointment-management-container" style="padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+        <!-- <mat-form-field style="flex-grow: 1; max-width: 500px;">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
+        </mat-form-field> -->
+        <!-- <mat-form-field class="search-field" appearance="outline">
+            <mat-label>Search Appointment</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field> -->
+          <mat-form-field class="search-field" appearance="outline">
+            <mat-label>Search Appointments</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+    </div>
+
+    <div class="mat-elevation-z8" style="padding: 20px; border-radius: 8px; background-color: #fff;">
+        <!-- {{appointments | json}} -->
+         <!-- {{canceledStatus}} -->
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="doctorName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Doctor</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.doctorId.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="patientName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Patient </th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.patientId.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="createdAt">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Booked Date </th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.createdAt | date: 'dd/MM/yyyy, hh:mm a' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="appointmentTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Appointment Time </th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.appointmentTime }}</td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="CanceledBy">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Canceled By </th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.canceledBy }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="CanceledDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Canceled Date </th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.canceledDateTime | date: 'dd/MM/yyyy, hh:mm a' }}</td>
+            </ng-container> -->
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                <td mat-cell *matCellDef="let appointment"
+                    [ngClass]="{
+                      'status-pending': appointment.status === 'pending',
+                      'status-confirmed': appointment.status === 'confirmed',
+                      'status-canceled': appointment.status === 'canceled'
+                    }">
+                  {{ appointment.status }}
+                </td>
+              </ng-container>
+              
+
+            <!-- <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.status }}</td>
+            </ng-container> -->
+            
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <!-- Buttons Section -->
+                <td mat-cell *matCellDef="let appointment">
+                    <!-- Show buttons only if status is NOT "Canceled" -->
+                    <ng-container *ngIf="appointment.status !== 'canceled'">
+                    <button mat-button color="warn" (click)="cancelAppointment(appointment)">Cancel</button>
+                
+                    <!-- Show Confirm button only if status is NOT "Confirmed" -->
+                    <button style="white-space: nowrap; color: white; background-color: #00796b;" mat-raised-button color="primary" 
+                            *ngIf="appointment.status !== 'confirmed'" 
+                            (click)="confirmAppointment(appointment)">
+                        Confirm
+                    </button>
+                    </ng-container>
+                </td>
+                <!-- <td mat-cell *matCellDef="let appointment">
+                    Show buttons only if status is NOT "Canceled"
+                    <ng-container *ngIf="appointment.status !== 'canceled'">
+                    <button mat-button color="warn" (click)="cancelAppointment(appointment)">Cancel</button>
+                    <button mat-raised-button color="primary" (click)="confirmAppointment(appointment)">Confirm</button>
+                    </ng-container>
+                </td> -->
+                <!-- <td mat-cell *matCellDef="let appointment">
+                    <button mat-button color="primary" (click)="confirmAppointment(appointment)">
+                        <mat-icon>edit</mat-icon> 
+                        Confirm
+                    </button>
+                    <button mat-button color="warn" (click)="cancelAppointment(appointment)">
+                        <mat-icon>delete</mat-icon> 
+                         Cancel
+                    </button>
+                </td> -->
+                <!-- <td mat-cell *matCellDef="let appointment">
+                    <button mat-button color="warn">
+                        <mat-icon>delete</mat-icon> 
+                    </button>
+                </td> -->
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let doctor; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="6">No data matching the filter"{{input.value}}"</td>
+            </tr>
+        </table>
+        <!-- {{totalAppointments}} -->
+        
+        <mat-paginator
+        [length]="totalAppointments"
+        (page)="onPageChange($event)"
+        [pageSizeOptions]="[5]"
+        aria-label="Select page of doctors"
+        style="margin-top: 20px;">
+      </mat-paginator>
+    </div>
+</div>
+

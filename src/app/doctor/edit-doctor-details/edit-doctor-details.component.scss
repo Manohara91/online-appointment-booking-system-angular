@@ -1,0 +1,92 @@
+// .toolbar {
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // padding: 16px;
+  // font-size: 18px;
+// }
+
+// .title {
+//   font-weight: bold;
+// }
+
+.edit-form {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .form-field {
+    flex: 1;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .toolbar {
+    // background-color: #3f51b5; /* Deep teal */
+    // display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 16px;
+    // font-size: 18px;
+  
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    // justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 10px 20px;
+    // height: 70px; /* Set height */
+  }
+  
+  .title {
+    font-size: 16px; /* Slightly larger for better readability */
+    font-weight: 600; /* Slightly bolder */
+    font-family: 'Arial', sans-serif; /* Standard font family */
+    letter-spacing: 1px; /* Adds spacing between letters for clarity */
+    text-transform: capitalize; /* Makes the title text all uppercase for a cleaner look */
+  }
+  button.save-btn {
+    // width: 100%;
+    // margin-top: 20px;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #00796b; /* button color */
+    color: white; /* White text on the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow */
+    transition: all 0.3s ease;
+  }
+  
+  button.save-btn:hover {
+    background-color: #004d40; /* Darker shade of teal on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  
+  button.save-btn:disabled {
+    background-color: #ccc; /* Grey color when disabled */
+    box-shadow: none;
+  }
+    

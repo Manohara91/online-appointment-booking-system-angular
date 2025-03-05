@@ -1,0 +1,65 @@
+<mat-toolbar color="primary" class="toolbar">
+    <span class="title">Edit Profile</span>
+    <button mat-icon-button (click)="close()" aria-label="Close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="profile-container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+      
+      <!-- Row 1: Name and Age -->
+      <div class="form-row">
+        <mat-form-field class="half-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter your name" />
+          <mat-error *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched">
+            Name is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="half-width">
+          <mat-label>Age</mat-label>
+          <input matInput formControlName="age" type="number" placeholder="Enter your age" />
+          <mat-error *ngIf="profileForm.get('age')?.invalid && profileForm.get('age')?.touched">
+            Age must be at least 18.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <!-- Row 2: Phone and Email -->
+      <div class="form-row">
+        <mat-form-field class="half-width">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNo" placeholder="Enter your phone number" />
+          <mat-error *ngIf="profileForm.get('phoneNo')?.invalid && profileForm.get('phoneNo')?.touched">
+            Phone number is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="half-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="Enter your email" />
+          <mat-error *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
+            Email is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <!-- Row 3: Address -->
+      <mat-form-field class="full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" placeholder="Enter your address"></textarea>
+        <mat-error *ngIf="profileForm.get('address')?.invalid && profileForm.get('address')?.touched">
+          Address is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Button Group -->
+      <div class="button-container">
+        <button mat-button color="warn" (click)="close()">Cancel</button>
+        <button mat-raised-button class="save-btn" color="primary" type="submit" [disabled]="profileForm.invalid">Save</button>
+      </div>
+      
+    </form>
+  </div>

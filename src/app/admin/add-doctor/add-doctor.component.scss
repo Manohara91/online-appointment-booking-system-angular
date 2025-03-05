@@ -1,0 +1,123 @@
+.registration-container {
+    // width: 400px;
+    margin: 20px auto;
+    // padding: 20px;
+    // background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 600px; /* Adjust this as needed */
+  // margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  mat-form-field {
+    margin-bottom: -10px;
+  }
+  
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .links-container {
+    display: flex;
+    // justify-content: space-between;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #3f51b5; /* Adjust to match your design */
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+
+  .two-inputs-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .two-inputs-row mat-form-field {
+    flex: 1;
+  }
+  .form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    flex: 1; /* Ensure each form field takes equal space */
+  }
+  
+  .registration-container {
+    max-width: 800px; /* Optional: Adjust the container width */
+    margin: 0 auto; /* Center the form */
+  }
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px; /* Space between rows */
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-right: 16px; /* Space between inputs */
+  }
+  
+  .form-group:last-child {
+    margin-right: 0;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  .toolbar {
+    // background-color: #3f51b5; /* Deep teal */
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 10px 20px;
+    // height: 70px; /* Set height */
+  }
+  
+  .title {
+    font-size: 16px; /* Slightly larger for better readability */
+    font-weight: 600; /* Slightly bolder */
+    font-family: 'Arial', sans-serif; /* Standard font family */
+    letter-spacing: 1px; /* Adds spacing between letters for clarity */
+    text-transform: capitalize; /* Makes the title text all uppercase for a cleaner look */
+  }
+
+  button.add-doctor-btn {
+    width: 100%;
+    // margin-top: 20px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #00796b; /* button color */
+    color: white; /* White text on the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow */
+    transition: all 0.3s ease;
+  }
+  
+  button.add-doctor-btn:hover {
+    background-color: #004d40; /* Darker shade of teal on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  
+  button.add-doctor-btn:disabled {
+    background-color: #ccc;
+    box-shadow: none;
+  }

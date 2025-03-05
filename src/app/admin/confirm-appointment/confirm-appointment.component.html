@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="toolbar" style="display: flex; justify-content: space-between; align-items: center;">
+    <span class="title">Confirm Appointment</span>
+      <!-- Close Button (Cross Icon) -->
+      <button mat-icon-button (click)="onNoClick()" aria-label="Close" style="margin-left: auto;">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+    
+    <!-- <h1 mat-dialog-title>Confirm Deletion</h1> -->
+    <div mat-dialog-content>
+      <p>Are you sure you want to confirm appointment?</p>
+    </div>
+    <div mat-dialog-actions style="display: flex; justify-content: flex-end; margin-right: 16px;">
+      <button mat-button (click)="onNoClick()">No</button>
+      <button mat-raised-button color="warn" (click)="onYesClick()">Yes</button>
+    </div>
+  

@@ -1,0 +1,46 @@
+<mat-toolbar color="primary" class="toolbar">
+    <span class="title" style="flex-grow: 1;">Available Doctors</span>
+    
+    <!-- Buttons Container -->
+    <div style="display: flex; gap: 10px;">
+      <button (click)="profile()">My Profile</button>
+      <button (click)="bookingDetail()">Booking Details</button>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar>
+  
+    
+  <div class="container">
+    <div class="doctor-grid">
+      <div *ngFor="let doctor of doctors" 
+           class="doctor-card"  
+           (click)="selectDoctor(doctor)">
+  
+        <!-- Doctor Image -->
+        <div class="doctor-image">
+          <!-- <img [src]="doctor_image" alt="Doctor Image" class="doctor-img"> -->
+          <!-- <img src="doctor_image" alt="Doctor Image" class="doctor-img"> -->
+          <img [src]="doctor_image" alt="Doctor Image" class="doctor-img">
+  
+          <!-- doctor.imageUrl -->
+        </div>
+  
+        <!-- Doctor Info (Name and Specialization) -->
+        <div class="doctor-info">
+          <h3>{{ doctor.name }}</h3>
+          <p>{{ doctor.specialization || 'No specialization provided' }}</p>
+        </div>
+  
+      </div>
+    </div>
+  
+    <!-- Pagination -->
+    <mat-paginator [length]="totalDoctors" 
+                   [pageSize]="pageSize" 
+                   [pageIndex]="pageNumber - 1" 
+                   (page)="onPageChange($event)" 
+                   aria-label="Select page of doctors">
+    </mat-paginator>
+  </div>
+  
+  

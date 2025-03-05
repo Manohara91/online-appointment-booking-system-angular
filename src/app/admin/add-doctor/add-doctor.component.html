@@ -1,0 +1,130 @@
+<mat-toolbar class="toolbar" color="primary" style="display: flex; justify-content: space-between; align-items: center;">
+    <span class="title">Add Doctor</span>
+    
+    <!-- Close Button (Cross Icon) -->
+    <button mat-icon-button (click)="close()" aria-label="Close" style="margin-left: auto;">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  
+  <div class="registration-container" style="margin-top: 10px;">
+    <form [formGroup]="addDoctorForm" (ngSubmit)="onSubmit()">
+      
+      <!-- First Row: Name and Email -->
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Full Name" required />
+            <mat-error *ngIf="addDoctorForm.get('name')?.invalid && addDoctorForm.get('name')?.touched">
+              Name is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email" required />
+            <mat-error *ngIf="addDoctorForm.get('email')?.invalid && addDoctorForm.get('email')?.touched">
+              Email is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!-- Second Row: Phone and Specialization -->
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phoneNo" placeholder="Phone number" required />
+            <mat-error *ngIf="addDoctorForm.get('phoneNo')?.invalid && addDoctorForm.get('phoneNo')?.touched">
+              Phone number is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Password" required />
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+              {{ hide ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+            <mat-error *ngIf="addDoctorForm.get('password')?.invalid && addDoctorForm.get('password')?.touched">
+              Password is required and must be at least 6 characters long.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!-- Third Row: Specialization and Availability -->
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Specialization</mat-label>
+            <input matInput formControlName="specialization" placeholder="Specialization" required />
+            <mat-error *ngIf="addDoctorForm.get('specialization')?.invalid && addDoctorForm.get('specialization')?.touched">
+              Specialization is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Availability</mat-label>
+            <mat-select formControlName="availability" placeholder="Select Availability" multiple required>
+              <mat-option *ngFor="let option of availabilityOptions" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addDoctorForm.get('availability')?.invalid && addDoctorForm.get('availability')?.touched">
+              Availability is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <!-- <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Availability</mat-label>
+            <mat-select formControlName="availability" placeholder="Select Availability" required>
+              <mat-option *ngFor="let option of availabilityOptions" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addDoctorForm.get('availability')?.invalid && addDoctorForm.get('availability')?.touched">
+              Availability is required.
+            </mat-error>
+          </mat-form-field>
+        </div> -->
+      </div>
+  
+      <!-- Fourth Row: Experience and Hospital -->
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Experience</mat-label>
+            <input matInput formControlName="experience" placeholder="Experience" required />
+            <mat-error *ngIf="addDoctorForm.get('experience')?.invalid && addDoctorForm.get('experience')?.touched">
+              Experience should be a minimum of 5 years and a maximum of 20 years.
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Hospital</mat-label>
+            <input matInput formControlName="hospital" placeholder="Hospital" required />
+            <mat-error *ngIf="addDoctorForm.get('hospital')?.invalid && addDoctorForm.get('hospital')?.touched">
+              Hospital is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button mat-raised-button color="primary" class="add-doctor-btn" type="submit" [disabled]="addDoctorForm.invalid">Add Doctor</button>
+    </form>
+  </div>

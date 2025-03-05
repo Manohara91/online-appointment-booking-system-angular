@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="toolbar">
+    <span class="title">Add Doctor Availability</span>
+  
+    <!-- Close Button (Cross Icon) -->
+    <button mat-icon-button (click)="close()" aria-label="Close" class="close-btn">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="doctor-availability-container">
+    <form [formGroup]="addDoctorAvailabilityTimeForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field wide-dropdown">
+          <mat-label>Add availability time</mat-label>
+          <mat-select formControlName="availability" placeholder="Select Availability" multiple required>
+            <mat-option *ngFor="let option of filteredAvailabilityOptions" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addDoctorAvailabilityTimeForm.get('availability')?.invalid && addDoctorAvailabilityTimeForm.get('availability')?.touched">
+            Availability is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div mat-dialog-actions class="button-group">
+        <button mat-button (click)="close()">Cancel</button>
+        <button mat-raised-button class="add-btn" color="primary" type="submit" [disabled]="addDoctorAvailabilityTimeForm.invalid">Add</button>
+      </div>
+    </form>
+  </div>

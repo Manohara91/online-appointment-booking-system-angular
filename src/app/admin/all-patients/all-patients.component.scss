@@ -1,0 +1,64 @@
+/* Adjust the size of the search bar */
+.small-search mat-form-field {
+    width: 250px; /* You can adjust this as needed */
+  }
+  
+  /* Position the Add Doctor button */
+  .add-doctor-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    background-color: white;
+    color: black;
+  }
+  
+  /* Add some space between the search bar and the "Add Doctor" button */
+  .doctor-search {
+    margin-top: 40px; /* Adjust this for top spacing between button and search bar */
+  }
+  mat-icon {
+      font-size: 24px;  /* Set a custom icon size if you like */
+    }
+    
+    button {
+      margin: 0 8px; /* Add space between the icons */
+    }
+  
+    mat-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logoutbtn {
+      background-color: transparent;
+      color: white;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .logoutbtn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .search-field {
+      width: 350px; /* Reduced width */
+      // height: 36px; /* Reduced height */
+      border-radius: 6px; /* Rounded corners */
+    }
+    
+    .search-field .mat-mdc-form-field-flex {
+      padding: 4px 10px; /* Optimized padding */
+    }
+    
+    .search-field input {
+      font-size: 14px; /* Smaller font size */
+    }
+    
+    .search-field mat-icon {
+      color: gray;
+      font-size: 18px; /* Icon size */
+    }
+    

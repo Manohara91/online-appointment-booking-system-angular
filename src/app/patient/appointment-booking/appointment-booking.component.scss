@@ -1,0 +1,156 @@
+/* General Layout */
+.doctor-details {
+    max-width: 700px;  /* Reduced max-width to fit screen better */
+    margin: 10px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00796b;
+    font-weight: bold;
+  }
+  
+  .doctor-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .mat-form-field {
+    width: 100%;  /* Ensure all fields take up full width */
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  strong {
+    font-weight: bold;
+    color: #00796b;
+  }
+  
+  span {
+    color: #555;
+  }
+  
+  .availability {
+    margin-bottom: 5px;
+  }
+  
+  .availability-dropdown {
+    width: 100%;
+  }
+  
+  .comment-box {
+    // margin-bottom: 10px;
+  }
+  
+  .comment-box mat-form-field {
+    width: 100%;  /* Make the comment box take up the full width */
+  }
+  
+  textarea {
+    width: 100%;  /* Ensure the textarea itself also stretches fully */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  mat-raised-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .doctor-details {
+      width: 100%;
+      max-width: 600px;
+      padding: 15px;
+    }
+  
+    .doctor-info {
+      grid-template-columns: 1fr; /* Stack info on smaller screens */
+    }
+  
+    textarea {
+      font-size: 14px;
+    }
+  }
+  
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  button {
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    // background-color: rgba(255, 255, 255, 0.1);
+  }
+  .actions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .actions {
+    // margin-bottom: 10px; /* Adjust space between button and message */
+  }
+  
+  .error-message {
+    margin-top: 10px; /* Adjust space between the button and the message */
+    text-align: center;
+    color: red;
+    font-weight: bold;
+  }
+  
+  .toolbar {
+    // background-color: #3f51b5; /* Deep teal */
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 10px 20px;
+    // height: 70px; /* Set height */
+  }
+  
+  .title {
+    font-size: 16px; /* Slightly larger for better readability */
+    font-weight: 600; /* Slightly bolder */
+    font-family: 'Arial', sans-serif; /* Standard font family */
+    letter-spacing: 1px; /* Adds spacing between letters for clarity */
+    text-transform: capitalize; /* Makes the title text all uppercase for a cleaner look */
+  }
+  .custom-enabled {
+    background-color: #00796b !important; /* Change to any color you want */
+    color: white !important;
+  }
+  

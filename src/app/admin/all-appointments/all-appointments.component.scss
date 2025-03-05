@@ -1,0 +1,35 @@
+.status-pending {
+    color: #ff9800; /* Amber */
+    // font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .status-confirmed {
+    color: #4caf50; /* Green */
+    // font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .status-canceled {
+    color: #f44336; /* Red */
+    // font-weight: bold;
+    text-transform: uppercase;
+  }
+  .search-field {
+    width: 350px; /* Reduced width */
+    // height: 36px; /* Reduced height */
+    border-radius: 6px; /* Rounded corners */
+  }
+  
+  .search-field .mat-mdc-form-field-flex {
+    padding: 4px 10px; /* Optimized padding */
+  }
+  
+  .search-field input {
+    font-size: 14px; /* Smaller font size */
+  }
+  
+  .search-field mat-icon {
+    color: gray;
+    font-size: 18px; /* Icon size */
+  }

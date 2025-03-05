@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="goBack()" aria-label="Back">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    <span class="title" style="flex-grow: 1;">{{patientProfile?.name}}</span>
+    <div style="display: flex; gap: 10px;">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar>
+
+  <div class="patient-profile-container">
+    <h2 class="profile-title">My Profile</h2>
+  
+    <div class="profile-card">
+      <div class="profile-header">
+        <h3>{{ patientProfile?.name }}</h3>
+        <p class="patient-age">Age: {{ patientProfile?.age }}</p>
+      </div>
+  
+      <div class="profile-details">
+        <div class="profile-row">
+          <label>Phone Number:</label>
+          <span>{{ patientProfile?.phoneNo }}</span>
+        </div>
+  
+        <div class="profile-row">
+          <label>Email:</label>
+          <span>{{ patientProfile?.email }}</span>
+        </div>
+  
+        <div class="profile-row">
+          <label>Address:</label>
+          <span>{{ patientProfile?.address }}</span>
+        </div>
+      </div>
+  
+      <div class="profile-footer">
+        <button mat-raised-button color="primary" (click)="editProfile(patientProfile)">Edit Profile</button>
+      </div>
+    </div>
+  </div> 
+  

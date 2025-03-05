@@ -1,0 +1,86 @@
+.toolbar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Appointments container */
+  .appointments-container {
+    display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+  
+  /* Card styling */
+  .order-details-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .order-details-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  /* Status styling */
+  .canceled {
+    color: red;
+  }
+  
+  .pending {
+    color: orange;
+  }
+  
+  /* Action buttons */
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8px;
+  }
+  
+  // button {
+  //   text-transform: none;
+  // }
+  
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  button {
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .toolbar {
+    // background-color: #3f51b5; /* Deep teal */
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 10px 20px;
+    // height: 70px; /* Set height */
+  }
+  
+  .title {
+    font-size: 16px; /* Slightly larger for better readability */
+    font-weight: 600; /* Slightly bolder */
+    font-family: 'Arial', sans-serif; /* Standard font family */
+    letter-spacing: 1px; /* Adds spacing between letters for clarity */
+    text-transform: capitalize; /* Makes the title text all uppercase for a cleaner look */
+  }
+  

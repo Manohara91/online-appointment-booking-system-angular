@@ -1,0 +1,119 @@
+/* Profile Container */
+.profile-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Form Styles */
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Row Styling */
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .half-width {
+    width: 48%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  /* Toolbar Styles */
+  .toolbar {
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  /* Title Styling */
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+  }
+
+  /* Button styles */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  button.save-btn {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #00796b; /* button color */
+    color: white; /* White text on the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow */
+    transition: all 0.3s ease;
+  }
+  
+  button.save-btn:hover {
+    background-color: #004d40; /* Darker shade of teal on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  
+  button.save-btn:disabled {
+    background-color: #ccc; /* Grey color when disabled */
+    box-shadow: none;
+  }
+  
+  button.mat-button {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #00796b; /* Button text color */
+    border: 1px solid #00796b; /* Button border color */
+    transition: all 0.3s ease;
+  }
+  
+  button.mat-button:hover {
+    background-color: #00796b;
+    color: white;
+  }
+  
+  button.mat-button:disabled {
+    background-color: #ccc; /* Grey color when disabled */
+    color: white;
+    border: 1px solid #ccc;
+  }
+  
+  
+  /* Save Button */
+  button.save-btn {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #00796b;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  button.save-btn:hover {
+    background-color: #004d40;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  button.save-btn:disabled {
+    background-color: #ccc;
+    box-shadow: none;
+  }
+  

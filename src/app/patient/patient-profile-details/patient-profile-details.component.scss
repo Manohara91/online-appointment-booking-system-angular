@@ -1,0 +1,156 @@
+/* Base Layout */
+.patient-profile-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Title */
+  .profile-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+  }
+  
+  /* Profile Header */
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .profile-header h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .patient-age {
+    font-size: 16px;
+    color: #777;
+    font-weight: 400;
+  }
+  
+  /* Profile Details */
+  .profile-details {
+    margin-top: 30px;
+  }
+  
+  .profile-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .profile-row:last-child {
+    border-bottom: none;
+  }
+  
+  .profile-row label {
+    font-size: 16px;
+    color: #444;
+    font-weight: 500;
+  }
+  
+  .profile-row span {
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+  }
+  
+  /* Profile Footer */
+  .profile-footer {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .profile-footer button {
+    padding: 10px 30px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .profile-footer button:hover {
+    background-color: #004d40;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .profile-title {
+      font-size: 28px;
+    }
+  
+    .profile-card {
+      padding: 20px;
+    }
+  
+    .profile-header h3 {
+      font-size: 24px;
+    }
+  
+    .profile-row label, .profile-row span {
+      font-size: 14px;
+    }
+  
+    .profile-footer button {
+      width: 100%;
+      padding: 12px 0;
+      font-size: 18px;
+    }
+  }
+  
+  
+  
+  button {
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .toolbar {
+    // background-color: #3f51b5; /* Deep teal */
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 10px 20px;
+    // height: 70px; /* Set height */
+  }
+  
+  .title {
+    font-size: 16px; /* Slightly larger for better readability */
+    font-weight: 600; /* Slightly bolder */
+    font-family: 'Arial', sans-serif; /* Standard font family */
+    letter-spacing: 1px; /* Adds spacing between letters for clarity */
+    text-transform: capitalize; /* Makes the title text all uppercase for a cleaner look */
+  }
