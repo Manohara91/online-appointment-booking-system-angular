@@ -48,6 +48,9 @@ import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashb
 import { EditDoctorDetailsComponent } from './doctor/edit-doctor-details/edit-doctor-details.component';
 import { AppointmentBookingComponent } from './patient/appointment-booking/appointment-booking.component';
 import { AppointmentBookingDetailsComponent } from './patient/appointment-booking-details/appointment-booking-details.component';
+import { LoaderComponent } from './loader/loader/loader.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
 // import { AllPatientsComponent } from './admin/all-patients/all-patients.component';
 // import { AllAppointmentsComponent } from './admin/all-appointments/all-appointments.component';
@@ -83,6 +86,7 @@ import { AppointmentBookingDetailsComponent } from './patient/appointment-bookin
     EditDoctorDetailsComponent,
     AppointmentBookingComponent,
     AppointmentBookingDetailsComponent,
+    LoaderComponent
     // LoginComponent,
     // RegisterComponent,
     // AdminDashboardComponent,
@@ -125,7 +129,9 @@ import { AppointmentBookingDetailsComponent } from './patient/appointment-bookin
     MatListModule,
     MatChipsModule,
     MatSidenavModule,
-    CommonModule
+    CommonModule,
+    OverlayModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

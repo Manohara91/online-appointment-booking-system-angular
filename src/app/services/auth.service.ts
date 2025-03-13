@@ -2,9 +2,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders  } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize } from 'rxjs/operators';
 import { environment } from '../../environments/environments';
 import { Router } from '@angular/router';
+import { DialogService } from './dialog.service';
 
 
 
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private apiUrl = environment.apiUrl; // Define the base URL for your API
 
-  constructor(private http: HttpClient,private router: Router) {}
+  constructor(private http: HttpClient,private router: Router,private dialogService: DialogService) {}
   // Handle any errors from HTTP requests
   private handleError(error: any): Observable<any> {
     console.error('API error: ', error);
@@ -23,20 +24,25 @@ export class AuthService {
 
   // Method for login
   login(payload: any): Observable<any> {
+    this.dialogService.show();
     return this.http.post(`${this.apiUrl}/auth/login`, payload).pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError)
     );
   }
 
   // Method for registration
   register(payload: any): Observable<any> {
+    this.dialogService.show();
     return this.http.post(`${this.apiUrl}/auth/register`, payload).pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
   }
 
   // Service method to get all doctors with pagination
 getAllDoctors(page: number, limit: number): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -46,12 +52,14 @@ getAllDoctors(page: number, limit: number): Observable<any> {
 
   // Pass page and limit as query parameters
   return this.http.get(`${this.apiUrl}/doctors/all-doctors?page=${page}&limit=${limit}`, { headers }).pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError)
   );
 }
 
 // add doctor
 addDoctor(payload: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -67,11 +75,13 @@ addDoctor(payload: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/doctors/add`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
 
 getAvailableDoctors(page: number, pageSize: number): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -80,11 +90,13 @@ getAvailableDoctors(page: number, pageSize: number): Observable<any> {
   });
   return this.http.get<any>(`${this.apiUrl}/patient/availableDoctors?page=${page}&pageSize=${pageSize}`,{headers})
   .pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError) // Handles any API errors
   );;
 }
 
 bookAppointment(payload: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -100,11 +112,13 @@ bookAppointment(payload: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/patient/appointments/book`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
 
 getAppointmentBookingDetails(patientId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -113,6 +127,7 @@ getAppointmentBookingDetails(patientId: any): Observable<any> {
   });
   return this.http.get<any>(`${this.apiUrl}/patient/appointmentDetails/${patientId}`,{headers})
   .pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError) // Handles any API errors
   );;
 }
@@ -120,6 +135,7 @@ getAppointmentBookingDetails(patientId: any): Observable<any> {
 // Cancel Appointent
 
 cancelAppointment(payload: any,appointmentId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -135,6 +151,7 @@ cancelAppointment(payload: any,appointmentId: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/patient/appointments/${appointmentId}`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
@@ -142,6 +159,7 @@ cancelAppointment(payload: any,appointmentId: any): Observable<any> {
 //  get doctor appointments
 
 getDoctorAppointments(doctorId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -150,6 +168,7 @@ getDoctorAppointments(doctorId: any): Observable<any> {
   });
   return this.http.get<any>(`${this.apiUrl}/doctors/doctor-appointments/${doctorId}`,{headers})
   .pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError) // Handles any API errors
   );
 }
@@ -157,6 +176,7 @@ getDoctorAppointments(doctorId: any): Observable<any> {
 //  Remove Doctor
 
 removeDoctor(doctorId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -165,6 +185,7 @@ removeDoctor(doctorId: any): Observable<any> {
   });
   return this.http.delete<any>(`${this.apiUrl}/doctors/remove-doctor/${doctorId}`,{headers})
   .pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError) // Handles any API errors
   );;
 }
@@ -172,6 +193,7 @@ removeDoctor(doctorId: any): Observable<any> {
 //  get All Patients
 
 getAllPatients(page: number, pageSize: number): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -180,6 +202,7 @@ getAllPatients(page: number, pageSize: number): Observable<any> {
   });
   return this.http.get<any>(`${this.apiUrl}/patient/allPatient?page=${page}&pageSize=${pageSize}`,{headers})
   .pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError) // Handles any API errors
   );
 }
@@ -187,6 +210,7 @@ getAllPatients(page: number, pageSize: number): Observable<any> {
 //  get All Appointments
 
 getAllAppointments(page: number, pageSize: number): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -195,11 +219,13 @@ getAllAppointments(page: number, pageSize: number): Observable<any> {
   });
   return this.http.get<any>(`${this.apiUrl}/patient/allAppointments?page=${page}&pageSize=${pageSize}`,{headers})
   .pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError) // Handles any API errors
   );
 }
 
 confirmAppointment(payload: any,appointmentId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -215,11 +241,13 @@ confirmAppointment(payload: any,appointmentId: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/patient/confirmAppointment/${appointmentId}`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
 
 cancelAppointments(payload: any,appointmentId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -235,6 +263,7 @@ cancelAppointments(payload: any,appointmentId: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/patient/cancelAppointment/${appointmentId}`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
@@ -242,6 +271,7 @@ cancelAppointments(payload: any,appointmentId: any): Observable<any> {
 // edit doctor details
 
 editDoctorDetails(payload: any, doctorId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -257,6 +287,7 @@ editDoctorDetails(payload: any, doctorId: any): Observable<any> {
 
   return this.http.put(`${this.apiUrl}/doctors/edit-doctor-details/${doctorId}`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
@@ -264,6 +295,7 @@ editDoctorDetails(payload: any, doctorId: any): Observable<any> {
 // patient profile
 
 getPatientById(patientId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   // If the token exists, add it to the headers
@@ -272,6 +304,7 @@ getPatientById(patientId: any): Observable<any> {
   });
   return this.http.get<any>(`${this.apiUrl}/patient/profile/${patientId}`,{headers})
   .pipe(
+    finalize(() => this.dialogService.hide()),
     catchError(this.handleError) // Handles any API errors
   );
 }
@@ -279,6 +312,7 @@ getPatientById(patientId: any): Observable<any> {
 // edit patient profile
 
 editPatientProfileDetails(payload: any, patientId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -294,6 +328,7 @@ editPatientProfileDetails(payload: any, patientId: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/patient/editPatientProfile/${patientId}`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
@@ -301,6 +336,7 @@ editPatientProfileDetails(payload: any, patientId: any): Observable<any> {
 // add doctor availability
 
 addDoctorAvailability(payload: any, doctorId: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -316,6 +352,7 @@ addDoctorAvailability(payload: any, doctorId: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/doctors/add-doctor-availability/${doctorId}`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
@@ -323,6 +360,7 @@ addDoctorAvailability(payload: any, doctorId: any): Observable<any> {
 // check doctor availability limit
 
 checkAvailabilityLimit(payload: any): Observable<any> {
+  this.dialogService.show();
   const token = localStorage.getItem('authToken');
   
   if (!token) {
@@ -338,11 +376,13 @@ checkAvailabilityLimit(payload: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/patient/checkAvailabilityLimit`, payload, { headers })
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }
 
 forgotPassword(payload: any): Observable<any> {
+  this.dialogService.show();
   // const token = localStorage.getItem('authToken');
   
   // if (!token) {
@@ -358,6 +398,7 @@ forgotPassword(payload: any): Observable<any> {
 
   return this.http.post(`${this.apiUrl}/patient/forgotPassword`, payload)
     .pipe(
+      finalize(() => this.dialogService.hide()),
       catchError(this.handleError) // Handles any API errors
     );
 }

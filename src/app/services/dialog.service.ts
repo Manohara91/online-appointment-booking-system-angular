@@ -1,11 +1,25 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar'; // Import MatSnackBar
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
   constructor(private notification: MatSnackBar) { }
+  isLoading = new BehaviorSubject<boolean>(false);
+  // show(){
+  //   this.isLoading.next(true);
+  // }
+  show() {
+    this.isLoading.next(true);
+    // setTimeout(() => {
+    //   this.isLoading.next(false); // Use next(false) instead of assigning directly
+    // }, 1000); // Ensures the spinner is visible for at least 500ms
+  }
+  hide(){
+    this.isLoading.next(false);
+  }
 
   static setConfigurations(type: string, position: string, notify_duration: number) {
     const horizontalPosition: MatSnackBarHorizontalPosition = 'right';
