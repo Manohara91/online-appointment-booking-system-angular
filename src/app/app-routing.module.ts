@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'book-appointment', component: AppointmentBookingComponent },
   { path: 'booking-appointment-details', component: AppointmentBookingDetailsComponent },
   { path: 'patient-profile', component: PatientProfileDetailsComponent },
+  { path: '**', redirectTo: '/login' }  // Fallback for unknown routes
   // { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
 ];
 
