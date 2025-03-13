@@ -53,4 +53,8 @@ export class ForgotPasswordComponent {
     this.hide = !this.hide;
   }
 
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+
 }
