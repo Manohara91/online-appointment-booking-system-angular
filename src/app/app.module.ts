@@ -51,6 +51,7 @@ import { AppointmentBookingDetailsComponent } from './patient/appointment-bookin
 import { LoaderComponent } from './loader/loader/loader.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 // import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
 // import { AllPatientsComponent } from './admin/all-patients/all-patients.component';
 // import { AllAppointmentsComponent } from './admin/all-appointments/all-appointments.component';
@@ -133,7 +134,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     OverlayModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy } // ✅ Fix for GitHub Pages
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
