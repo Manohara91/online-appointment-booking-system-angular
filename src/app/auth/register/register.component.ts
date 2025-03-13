@@ -78,7 +78,7 @@ export class RegisterComponent {
   }
 
   goToLogin() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/online-appointment-booking-system-angular/#/login']);
   }
 
 }
