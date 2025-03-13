@@ -35,8 +35,10 @@
           <button mat-raised-button class="login-btn" color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
   
           <div class="links-container">
-            <a [routerLink]="['/forgot-password']" class="link">Forgot Password?</a>
-            <a [routerLink]="['/register']" class="link">Register Here</a>
+            <!-- <a [routerLink]="['/forgot-password']" class="link">Forgot Password?</a>
+            <a [routerLink]="['/register']" class="link">Register Here</a> -->
+            <button (click)="goToRegister()">Register</button>
+            <button (click)="goToForgotPassword()">Forgot Password?</button>
           </div>
   
         </form>
