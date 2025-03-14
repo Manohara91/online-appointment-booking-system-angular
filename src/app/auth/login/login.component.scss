@@ -69,12 +69,14 @@ button {
   background-color: #00796b;
   color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 10px 20px;
   height: 70px;
   width: 100%;
   max-width: 100vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title {
@@ -83,7 +85,10 @@ button {
   font-family: 'Arial', sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
+  flex-grow: 1; /* Allows text to expand properly */
+  text-align: center; /* Centers the text inside */
 }
+
 
 h2 {
   font-size: 32px;
