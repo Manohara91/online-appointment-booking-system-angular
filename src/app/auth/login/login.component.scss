@@ -24,7 +24,6 @@
   background: linear-gradient(to right, #f5f5f5, #e8f0f2);
 }
 
-/* Glassmorphism Effect */
 .login-container {
   width: 90%;
   max-width: 400px;
@@ -45,7 +44,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Form Fields */
 .form-field {
   width: 100%;
 }
@@ -55,7 +53,6 @@ mat-form-field {
   margin-bottom: 16px;
 }
 
-/* Button Styling */
 button {
   width: 100%;
   margin-top: 12px;
@@ -72,26 +69,28 @@ button:hover {
   background: #004d40;
 }
 
-/* Links */
 .links-container {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 
-.link {
-  text-decoration: none;
-  color: #00796b;
-  font-size: 14px;
-  transition: color 0.3s ease;
+.links-container button {
+  background: #00796b;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 48%;
+  transition: all 0.3s ease;
 }
 
-.link:hover {
-  text-decoration: underline;
-  color: #004d40;
+.links-container button:hover {
+  background: #004d40;
 }
 
-/* Toolbar */
 .toolbar {
   background-color: #00796b;
   color: white;
@@ -106,18 +105,25 @@ button:hover {
   text-transform: uppercase;
 }
 
-/* Mobile Responsive Design */
-/* Existing styles remain unchanged, just adding these updates */
-
-/* Mobile View: Adjust buttons & toolbar */
 @media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .left-side {
+    display: none;
+  }
+  
+  .right-side {
+    width: 100%;
+  }
+
   .toolbar {
-    font-size: 16px; /* Reduced size for better fit */
+    font-size: 16px;
     padding: 8px 15px;
   }
 
   .login-container {
-    width: 90%;
     max-width: 350px;
     padding: 20px;
   }
@@ -129,20 +135,6 @@ button:hover {
   }
 
   .links-container button {
-    width: 100%; /* Match Login button */
-    padding: 12px;
-    font-size: 16px;
-    background: #00796b;
-    color: white;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .links-container button:hover {
-    background: #004d40;
+    width: 100%;
   }
 }
-
